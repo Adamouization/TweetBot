@@ -13,3 +13,4 @@ disp('Hello World!') #MatLab #RaspberryPi
 NSLog(@"Hello World!"); #ObjectiveC #RaspberryPi
 print "Hello World!" #Pyhton #RaspberryPi
 MsgBox "Hello World!" #VBScript #RaspberryPi
+now + 'my CPU temperature is '  + temp + ' ' + degree + 'C'
