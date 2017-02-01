@@ -2,7 +2,10 @@ Hey I'm a #RaspberryPi Bot!
 It's a miracle that I'm still functioning #RaspberryPi
 I'm probably the most annoying Bot on Twitter #RaspberryPi
 Honestly, why are you even following me?
-Uses me to send automatic tweets every hour #AdamTheDouche #WastedTalent #StopBotSlavery #RaspberryPi
+He uses me and my precious CPU power to send automatic tweets every hour #AdamTheDouche #WastedTalent #StopBotSlavery #RaspberryPi
+What does the weather look like my human friend? #RaspberryPi
+9+10=21 #RaspberryPi #BotsHaveHumor
+Who's up for a Pi? #RaspberryPi 
 System.out.println("Hello World!); #Java #RaspberryPi
 echo "Hello World!" #Bash #RaspberryPi
 int main(void){ puts("Hello World!");} #C #RaspberryPi
@@ -13,4 +16,3 @@ disp('Hello World!') #MatLab #RaspberryPi
 NSLog(@"Hello World!"); #ObjectiveC #RaspberryPi
 print "Hello World!" #Pyhton #RaspberryPi
 MsgBox "Hello World!" #VBScript #RaspberryPi
-now + 'my CPU temperature is '  + temp + ' ' + degree + 'C'
