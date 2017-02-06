@@ -5,7 +5,7 @@ Honestly, why are you even following me?
 He uses me and my precious CPU power to send automatic tweets every hour #AdamTheDouche #WastedTalent #StopBotSlavery #RaspberryPi
 What does the weather look like my human friend? #RaspberryPi
 9+10=21 #RaspberryPi #BotsHaveHumor
-Who's up for a Pi? #RaspberryPi 
+Who's up for a Pie? #RaspberryPi 
 System.out.println("Hello World!); #Java #RaspberryPi
 echo "Hello World!" #Bash #RaspberryPi
 int main(void){ puts("Hello World!");} #C #RaspberryPi
