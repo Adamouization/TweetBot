@@ -5,7 +5,6 @@ import sys
 import os
 import random
 from twython import Twython
-from datetime import datetime
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
@@ -19,21 +18,32 @@ line = os.popen(cmd).readline().strip()
 # tweet random sentences retrieved from a txt file
 def randomTweet():
 	try:
+		# read txt file
 		tweetsFile = open(os.path.join(__location__,'tweets.txt'),'r')
 		tweetsList = tweetsFile.readlines()
 		tweetsFile.close()
+		
+		# select a tweet from txt file
 		randomChoice = random.randrange(len(tweetsList))
-		#if tweetsList[randomChoice] <= 140:
-		print(tweetsList[randomChoice]) #debugging
-		api.update_status(status=tweetsList[randomChoice]) #update twitter status
-		#api.update_status(status=tweetsList[15]) #specific item in array
-		#else:
-		#print "tweet not sent: too long (140 chars max)"
+		#randomChoice = 0 # used to select specific line in tweets.txt
+		tweet = tweetsList[randomChoice]
+
+		# update twitter status if tweet is not too long
+		if len(tweet) <= 140:
+			print(tweet) #debugging
+			api.update_status(status=tweet)
+			#api.update_status(status=tweetsList[15]) #specific item in array (debugging)
+		else:
+			print "tweet not sent: too long (140 chars max)"
+		
 		return None
+	
 	except IOError:	
 		return None
+
 
 # tweet
 randomTweet()
 
-#api.update_status(sys.argv[1]) #tweet line input
+# tweet CLI input
+#api.update_status(sys.argv[1])
