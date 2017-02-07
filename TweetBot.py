@@ -7,19 +7,14 @@ import random
 from twython import Twython
 from datetime import datetime
 
-i = datetime.now()
-degree= unichr(176) # degree symbol
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 # authentication to twitter application using local keys
 api = Twython(keys.CONSUMER_KEY,keys.CONSUMER_SECRET,keys.ACCESS_KEY,keys.ACCESS_SECRET)
 
-# time
-now = i.strftime('%Y/%m/%d %H:%M:%S')
 # retrieve CPU temperature
 cmd = '/opt/vc/bin/vcgencmd measure_temp'
 line = os.popen(cmd).readline().strip()
-temp = line.split('=')[1].split("'")[0]
 
 # tweet random sentences retrieved from a txt file
 def randomTweet():
@@ -38,7 +33,7 @@ def randomTweet():
 	except IOError:	
 		return None
 
+# tweet
 randomTweet()
 
-#api.update_status(status='My current Raspberry Pi CPU temperature is ' + temp + ' C') #tweet cpu temp
 #api.update_status(sys.argv[1]) #tweet line input

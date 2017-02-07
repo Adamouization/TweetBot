@@ -8,7 +8,7 @@ from twython import Twython
 from datetime import datetime
 
 i = datetime.now()
-degree= unichr(176) # degree symbol
+degree = unichr(176) # degree symbol
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 # authentication to twitter application using local keys
@@ -21,4 +21,4 @@ cmd = '/opt/vc/bin/vcgencmd measure_temp'
 line = os.popen(cmd).readline().strip()
 temp = line.split('=')[1].split("'")[0]
 
-api.update_status(status='My current Raspberry Pi CPU temperature is ' + temp + ' C') #tweet cpu temp
+api.update_status(status= now + 'My current CPU temperature is ' + temp + ' ' + degree + 'C') #tweet cpu temp
