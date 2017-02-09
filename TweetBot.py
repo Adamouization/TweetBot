@@ -22,10 +22,10 @@ def randomTweet():
 		tweetsFile = open(os.path.join(__location__,'tweets.txt'),'r')
 		tweetsList = tweetsFile.readlines()
 		tweetsFile.close()
+		#print('length of list = ' + str(len(tweetsList)-1))
 		
 		# select a tweet from txt file
 		randomChoice = random.randrange(len(tweetsList))
-		#randomChoice = 0 # used to select specific line in tweets.txt
 		tweet = tweetsList[randomChoice]
 
 		# update twitter status if tweet is not too long

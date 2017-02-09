@@ -16,3 +16,4 @@ disp('Hello World!') #MatLab #RaspberryPi
 NSLog(@"Hello World!"); #ObjectiveC #RaspberryPi
 print "Hello World!" #Pyhton #RaspberryPi
 MsgBox "Hello World!" #VBScript #RaspberryPi
+So 8 bytes walk into a bar. The bartender asks, "can I get you anything?" The bytes reply, "Yeah, make us a double." #RPi #programmerhumor
