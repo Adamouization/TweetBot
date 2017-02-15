@@ -28,4 +28,14 @@ temp = line.split('=')[1].split("'")[0]
 
 tweet = now + ' My current CPU temperature is ' + temp + ' ' + degree + 'C'
 print(tweet) # debugging
-api.update_status(status = tweet) # tweet CPU temp
+
+# update log
+#fo = open("log.txt", "rw+")
+#print "Name of the file: ", fo.name
+# write line at end of the file
+#fo.seek(0,2)
+#fo.write(tweet)
+#fo.close()
+
+# tweet CPU temp
+api.update_status(status = tweet)
