@@ -4,16 +4,20 @@ import keys
 import sys
 import os
 import random
-from twython import Twython
+import tweepy
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 # authentication to twitter application using local keys
-api = Twython(keys.CONSUMER_KEY,keys.CONSUMER_SECRET,keys.ACCESS_KEY,keys.ACCESS_SECRET)
-
-# retrieve CPU temperature
-cmd = '/opt/vc/bin/vcgencmd measure_temp'
-line = os.popen(cmd).readline().strip()
+auth = tweepy.OAuthHandler(
+	keys.CONSUMER_KEY, 
+	keys.CONSUMER_SECRET
+)
+auth.set_access_token(
+	keys.ACCESS_KEY, 
+	keys.ACCESS_SECRET
+)
+api = tweepy.API(auth)
 
 # tweet random sentences retrieved from a txt file
 def randomTweet():
