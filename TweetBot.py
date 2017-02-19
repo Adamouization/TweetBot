@@ -1,4 +1,9 @@
-#!/usr/bin/env python
+# TweetBot
+# @author: Adam Jaamour
+# @email: adam@jaamour.com
+# @version: 2.1
+# @date: 19/02/2017
+
 # imports
 import keys                     # authentification to twitter app
 import sys                      # used to retrieve CPU temp
@@ -44,10 +49,13 @@ def statusTweet():
 		# update twitter status if tweet is within character limit
 		if len(tweet0) <= 140:
 			api.update_status(status = tweet0)
-			print(tweet0)
-			#api.update_status(status=tweetsList[15]) #specific item in array (debugging)
+			print('tweeting: ' + tweet0)
+			temp_tweet0 = now + tweet0
+			updateLog(tweet0)
 		else:
-			print "tweet not sent: too long (140 chars max)"
+			print('tweet not sent: too long (140 chars max)')
+			error = now + "Tweet not sent"
+			updateLog(error)
 		return None
 	except IOError:	
 		return None
@@ -72,7 +80,11 @@ def cpuTweet():
 
         # tweet CPU temp
         api.update_with_media(picture_path_temp, status = tweet1)
-        print(tweet1)
+        print('tweeting : ' + tweet1 + 'with pic: temperature' + str(random_cpu_pic))
+
+        # update log
+        temp_tweet1 = now + ' My current CPU temperature is ' + temp + ' C\n' # without degree symbol
+        updateLog(temp_tweet1)
 
 
 # tweet a picture along with its relevant status
@@ -92,13 +104,33 @@ def picTweet():
 
                 # tweet
                 api.update_with_media(picture_path, status = tweet2)
-                print(tweet2)
+                print('tweeting : ' + tweet2)
+
+                # update log
+                updateLog(tweet2)
+
                 return None
         except IOError:
                 return None
+
+
+# update log
+def updateLog(tweet):
+        log_entry = "tweeted at: " + now + " the following message: " + tweet
+        try:
+                fo = open("log.txt", "rw+")
+                # write line at end of the file
+                fo.seek(0,2)
+                fo.write(log_entry)
+                fo.close()
+                print('successfully updated log')
+                
+                return None
+        except IOError:
+                return None
+
         
-
-
+# script
 randomTweet = random.randrange(3)
 if randomTweet == 0:
         print("0: random tweet generated")
@@ -109,15 +141,6 @@ elif randomTweet == 1:
 elif randomTweet == 2:
         print("2: pic tweet generated")
         picTweet()
-
-
-# update log
-#fo = open("log.txt", "rw+")
-#print "Name of the file: ", fo.name
-# write line at end of the file
-#fo.seek(0,2)
-#fo.write(tweet)
-#fo.close()
 
 
 # tweet CLI input
