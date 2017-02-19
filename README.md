@@ -10,8 +10,7 @@
 ```
 sudo crontab -e
 
-*/60 * * * * python TweetBot.py
-0 */3 * * * python TweetBotCPU.py
+*/30 * * * * python TweetBot.py
 ```
 
 ### Features to be implemented in the future

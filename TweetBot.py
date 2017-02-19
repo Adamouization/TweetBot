@@ -11,7 +11,7 @@ from datetime import datetime   # used to get the current time
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 
-# authentication to twitter application using locally-stored keys
+# authentication to twitter application using locally-stored keys and tweepy
 auth = tweepy.OAuthHandler(
 	keys.CONSUMER_KEY, 
 	keys.CONSUMER_SECRET
@@ -35,7 +35,7 @@ def statusTweet():
 		tweetsFile = open(os.path.join(__location__,'tweets.txt'),'r')
 		tweetsList = tweetsFile.readlines()
 		tweetsFile.close()
-		#print('length of list = ' + str(len(tweetsList)-1))
+		#print('length of list = ' + str(len(tweetsList)-1)) #debugging
 		
 		# select a tweet from txt file
 		randomChoice = random.randrange(len(tweetsList))
@@ -43,8 +43,8 @@ def statusTweet():
 
 		# update twitter status if tweet is within character limit
 		if len(tweet0) <= 140:
-			print(tweet0) #debugging
 			api.update_status(status = tweet0)
+			print(tweet0)
 			#api.update_status(status=tweetsList[15]) #specific item in array (debugging)
 		else:
 			print "tweet not sent: too long (140 chars max)"
@@ -64,14 +64,15 @@ def cpuTweet():
         # picture
         random_cpu_pic = random.randrange(0,3)
         pic_name = "temperature" + str(random_cpu_pic) +  ".jpg"
-        picture_path = '/home/pi/Documents/PythonProjects/TweetBot/pictures/' + pic_name
+        picture_path_temp = '/home/pi/Documents/PythonProjects/TweetBot/pictures/' + pic_name
         print("pic number: temperature" + str(random_cpu_pic))
 
         # generate tweet to send with time, temp and degree symbol
         tweet1 = now + ' My current CPU temperature is ' + temp + ' ' + degree + 'C'
 
         # tweet CPU temp
-        api.update_with_media(picture_path, status = tweet1)
+        api.update_with_media(picture_path_temp, status = tweet1)
+        print(tweet1)
 
 
 # tweet a picture along with its relevant status
@@ -91,6 +92,7 @@ def picTweet():
 
                 # tweet
                 api.update_with_media(picture_path, status = tweet2)
+                print(tweet2)
                 return None
         except IOError:
                 return None
@@ -99,14 +101,14 @@ def picTweet():
 
 randomTweet = random.randrange(3)
 if randomTweet == 0:
-        #statusTweet()
-        print(0)
+        print("0: random tweet generated")
+        statusTweet()
 elif randomTweet == 1:
-        #cpuTweet()
-        print(1)
+        print("1: CPU tweet generated")
+        cpuTweet()
 elif randomTweet == 2:
-        #picTweet()
-        print(2)
+        print("2: pic tweet generated")
+        picTweet()
 
 
 # update log
