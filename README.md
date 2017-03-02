@@ -6,6 +6,7 @@
 - tweets CPU temperature at the beginning of every third hour
 - tweet .jpg files
 - local 140-characters message limit
+- write to a log each time script is ran to keep track of tweets sent
 - automatic script running using crontab:
 ```
 sudo crontab -e
@@ -14,7 +15,6 @@ sudo crontab -e
 ```
 
 ### Features to be implemented in the future
-- write to a log each time script is ran to keep track of tweets sent
 - retweet tweets with specific keywords
 - interaction with followers and other users
 
